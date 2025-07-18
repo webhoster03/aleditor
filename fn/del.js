@@ -1,0 +1,22 @@
+import "./../plugins/jquery.js";
+
+$(document).ready(() => {
+    $(".del").on("click", function(){
+        const val = $(this).val()
+        const editor= document.querySelector(".editarea")
+        const selection= window.getSelection()
+
+        if (!editor.contains(selection.anchorNode)) {
+            editor.focus();
+            return;
+        }
+
+        const range = selection.getRangeAt(0);
+
+        if(selection.toString().length>0){
+           document.execCommand("line-through", false, null)
+           editor.focus()
+           }
+
+    })
+})

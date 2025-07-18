@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Text Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+</head>
+
+<body>
+    <h1>Advanced Text Editor</h1>
+
+
+    <textarea id="edit"></textarea>
+
+    <!-- Editor will be inserted here -->
+    <script type="module">
+        import ALEditor from './js/main.js';
+
+        const editor =  new ALEditor();
+        editor.replace("edit");
+    </script>
+
+
+
+</body>
+
+</html>
