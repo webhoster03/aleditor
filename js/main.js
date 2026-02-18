@@ -22,8 +22,8 @@ const AlEditor = {
         toolbarContainer.className = "toolbarMainContainer"
         toolbarContainer.style.border = "1px solid black"
         toolbarContainer.style.margin = "0px 20px"
-        
-        
+
+
         const toolbar = document.createElement('div')
         toolbar.className = "toolbar"
         //toolbar.style.border = "1px solid black"
@@ -34,7 +34,7 @@ const AlEditor = {
         //toolbar.style.border= "1px solid red"
 
         const editor = document.createElement('div')
-        editor.className = "aleditor"
+        editor.className = `aleditor`
         editor.contentEditable = true
         editor.style.height = "350px"
         editor.style.width = "100%"
@@ -45,21 +45,22 @@ const AlEditor = {
         editor.style.boxSizing = "border-box";
         editor.style.fontFamily = "serif";
         editor.style.overflow = "auto";
-        
 
 
-        toolbar.id = element
+
+        //toolbar.id = element
 
         element.replaceWith(toolbarContainer)
         toolbarContainer.append(toolbar)
         toolbarContainer.append(editor)
-        
+
         this.toolbar(toolbar.className)
-                
+
+
     },
 
-    toolbar: function(toolbar) {
-        const id = document.querySelector("."+toolbar)
+    toolbar: function (toolbar) {
+        const id = document.querySelector("." + toolbar)
         const toolbarContainer = document.createElement('div')
         toolbarContainer.className = "toolbar"
 
@@ -150,18 +151,18 @@ const AlEditor = {
 
         const editorbox = document.createElement("div")
         //const editorbox = document.createElement("textarea")
-        editorbox.contentEditable=true
+        editorbox.contentEditable = true
         editorbox.focus()
-        editorbox.className= "editarea"
+        editorbox.className = "editarea"
         editorbox.id = "editarea"
-        editorbox.innerHTML= "hello how are you"
+        editorbox.innerHTML = "hello how are you"
         //id.appendChild(editorbox)
 
-        
+
 
 
         // First toolbar row
-        const toolbar1 = document.createElement('div'); 
+        const toolbar1 = document.createElement('div');
         toolbar1.className = 'altoolbar';
         toolbar1.innerHTML = `
             <button class="altool-button" title="Cut">✂</button>
@@ -221,16 +222,16 @@ const AlEditor = {
         const toolbar3 = document.createElement('div');
         toolbar3.className = 'altoolbar';
         toolbar3.innerHTML = `
-            <button class="altool-button bold" value="bold" title="Bold" id="bold">
-                B
+            <button class="altool-button bold" value="bold" title="Bold">
+                <b>B</b>
             </button>
 
             <button class="altool-button italic" value="italic" title="Italic">
-                I
+                <i>I</>
             </button>
 
             <button class="altool-button underline" value="underline" title="Underline">
-                U
+                <u>U </u>
             </button>
 
             <button class="altool-button del" value="strikeThrough" title="Strikethrough">
@@ -267,15 +268,15 @@ const AlEditor = {
             </button>
 
             <button class="altool-button" title="Parentheses">
-                ( )
+                ()
             </button>
 
             <button class="altool-button" title="Curly Braces">
-                { }
+                {}
             </button>
 
             <button class="altool-button" title="Square Brackets">
-                [ ]
+                []
             </button>
 
         `;
@@ -285,9 +286,9 @@ const AlEditor = {
         toolbarContainer.appendChild(toolbar3);
 
         return toolbarContainer;
-    }
-    
-    
+    },
+
+
 };
 
 window.AlEditor = AlEditor;
