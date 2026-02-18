@@ -85,8 +85,8 @@ const AlEditor = {
             max-width: 100%;
         }
 
-        .altoolbar        .altookbar-container {
-            background: #f5f5f5;
+        .altoolbar .altookbar-container {
+            background-color: #f5f5f5;
             padding: 5px;
             border-bottom: 1px solid #ddd;
         }
@@ -100,7 +100,7 @@ const AlEditor = {
 
         .altoolbar .altool-button {
             padding: 5px 8px;
-            background: white;
+            
             border: 1px solid #ccc;
             border-radius: 3px;
             cursor: pointer;
@@ -122,7 +122,7 @@ const AlEditor = {
             font-size: 14px;
         }
 
-        .aloutput/* MathML styling */
+        .aloutput
         math {
             font-size: 14px;
         }
@@ -137,7 +137,10 @@ const AlEditor = {
             font-family: Arial, sans-serif;
             line-height: 1.5;
             font-size: 18px;
-
+        }
+        .active{
+            background-color:blue;
+            color:white;
         }
                         `;
         document.head.appendChild(style);

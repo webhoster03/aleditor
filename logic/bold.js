@@ -34,6 +34,7 @@ $(document).ready(() => {
                 if (isBold) {
                     document.execCommand("bold", false, null);
                     $("#bold").removeClass("active");
+
                 } else {
                     document.execCommand("bold", false, null);
                     $("#bold").removeClass("active");
