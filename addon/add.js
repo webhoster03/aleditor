@@ -1,15 +1,15 @@
-//bold
-const bold = document.createElement("script");
-bold.src = "./../logic/bold.js";
-document.head.appendChild(bold);
+const tools = [
+    "bold", 
+    "italic", 
+    "underline", 
+    "strikethrough",
+    "superscript",
+    "subscript",
+    "oblique"
+];
 
-//italic 
-const italic = document.createElement("script");
-italic.src = "./../logic/italic.js";
-document.head.appendChild(italic);
-
-//underline
-const underline = document.createElement("script");
-underline.src = "./../logic/underline.js";
-document.head.appendChild(underline);
-
+tools.forEach(name => {
+  const script = document.createElement("script");
+  script.src = `./../logic/${name}.js`;
+  document.head.appendChild(script);
+});

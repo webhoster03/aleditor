@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script src="plugins/jquery.js"></script>    
+
+    <script src="plugins/jquery.js"></script>
 </head>
+
 <body>
     <h1>Text Editor</h1>
     <textarea id="new">hello this code run</textarea>
@@ -23,7 +25,24 @@
     <script>
         // Call after main.js is loaded
         AlEditor.replace("new");
+
+        $(document).ready(() => {
+            // 2. Get the data when a button is clicked
+            $('#get').on('click', function () {
+                const content = AlEditor.getData("new");
+                console.log(content);
+            });
+
+            // 3. Clear the editor
+            $('#clear').on('click', function () {
+                AlEditor.clearData("new");
+            });
+        })
+
+
+
     </script>
 
 </body>
+
 </html>

@@ -3,18 +3,19 @@ script.src = "./addon/add.js";
 document.head.appendChild(script);
 
 const AlEditor = {
+    instances: {},
+
     replace: function (selector) {
         const element = $("#" + selector);
-        this.createEditor(element)
-        //const data = $element.val();
-
+        // Pass the selector string (id) to keep track of this specific editor
+        this.createEditor(element, selector);
     },
 
-    createEditor: function (selector) {
-        const element = $(selector);
-        this.edit(element)
+    createEditor: function (element, id) {
+        this.edit(element, id);
     },
-    edit: function (selector) {
+
+    edit: function (selector, id) {
         const element = $(selector);
         element.addClass('aleditor')
 
@@ -49,6 +50,9 @@ const AlEditor = {
 
 
         //toolbar.id = element
+
+        // 2. REGISTER INSTANCE: Store the editor reference in our manager object
+        this.instances[id] = editor;
 
         element.replaceWith(toolbarContainer)
         toolbarContainer.append(toolbar)
@@ -238,15 +242,15 @@ const AlEditor = {
                 S
             </button>
 
-            <button class="altool-button" value="superscript" title="Superscript">
+            <button class="altool-button superscript" value="superscript" title="Superscript">
                 X²
             </button>
 
-            <button class="altool-button" value="subscript" title="Subscript">
+            <button class="altool-button subscript" value="subscript" title="Subscript">
                 X₂
             </button>
 
-            <button class="altool-button" title="Fraction">
+            <button class="altool-button oblique" title="Fraction">
                 <math>
                     <mfrac>
                         <mi>A</mi>
@@ -287,6 +291,20 @@ const AlEditor = {
 
         return toolbarContainer;
     },
+
+    getData: function (id) {
+        if (this.instances[id]) {
+            return this.instances[id].innerHTML;
+        }
+        return "";
+    },
+
+    // 4. IMPLEMENT CLEARDATA
+    clearData: function (id) {
+        if (this.instances[id]) {
+            this.instances[id].innerHTML = "";
+        }
+    }
 
 
 };
