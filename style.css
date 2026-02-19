@@ -1,9 +1,0 @@
-.obliqueMainScreen{
-    height: 250px;
-    width: 450px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-}
