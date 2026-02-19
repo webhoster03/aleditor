@@ -4,6 +4,8 @@ document.head.appendChild(script);
 
 const AlEditor = {
     instances: {},
+    
+    
 
     replace: function (selector) {
         const element = $("#" + selector);
@@ -49,18 +51,13 @@ const AlEditor = {
 
 
 
-        //toolbar.id = element
-
         // 2. REGISTER INSTANCE: Store the editor reference in our manager object
         this.instances[id] = editor;
 
         element.replaceWith(toolbarContainer)
         toolbarContainer.append(toolbar)
         toolbarContainer.append(editor)
-
         this.toolbar(toolbar.className)
-
-
     },
 
     toolbar: function (toolbar) {
@@ -250,7 +247,7 @@ const AlEditor = {
                 X₂
             </button>
 
-            <button class="altool-button oblique" title="Fraction">
+            <button class="altool-button obliquebox" title="Fraction">
                 <math>
                     <mfrac>
                         <mi>A</mi>

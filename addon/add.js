@@ -13,3 +13,14 @@ tools.forEach(name => {
   script.src = `./../logic/${name}.js`;
   document.head.appendChild(script);
 });
+
+const tag = [
+    "oblique",
+    "mainbackground"
+];
+
+tag.forEach(name => {
+  const tagScript = document.createElement("script");
+  tagScript.src = `./../functions/${name}.js`;
+  document.head.appendChild(tagScript);
+});
