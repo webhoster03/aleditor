@@ -256,7 +256,7 @@ const AlEditor = {
                 </math>
             </button>
 
-            <button class="altool-button" title="Math Expression">
+            <button class="altool-button expressionbox" title="Math Expression">
                 <math>
                     <mrow>
                         <mi>C</mi>

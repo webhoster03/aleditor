@@ -5,7 +5,8 @@ const tools = [
     "strikethrough",
     "superscript",
     "subscript",
-    "oblique"
+    "oblique",
+    "expression"
 ];
 
 tools.forEach(name => {
@@ -16,7 +17,8 @@ tools.forEach(name => {
 
 const tag = [
     "oblique",
-    "mainbackground"
+    "mainbackground",
+    "expression"
 ];
 
 tag.forEach(name => {
