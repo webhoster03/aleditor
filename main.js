@@ -28,7 +28,7 @@ class ALEditor {
         this.createToolbar(divId)
     }
 
-    
+
     createToolbar(divId) {
         const id = document.getElementById(divId)
         const toolbarContainer = document.createElement('div')
@@ -119,18 +119,18 @@ class ALEditor {
 
         const editorbox = document.createElement("div")
         //const editorbox = document.createElement("textarea")
-        editorbox.contentEditable=true
+        editorbox.contentEditable = true
         editorbox.focus()
-        editorbox.className= "editarea"
+        editorbox.className = "editarea"
         editorbox.id = "editarea"
-        editorbox.innerHTML= "hello how are you"
+        editorbox.innerHTML = "hello how are you"
         id.appendChild(editorbox)
 
-        
+
 
 
         // First toolbar row
-        const toolbar1 = document.createElement('div'); 
+        const toolbar1 = document.createElement('div');
         toolbar1.className = 'altoolbar';
         toolbar1.innerHTML = `
             <button class="altool-button" title="Cut">

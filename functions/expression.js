@@ -161,17 +161,17 @@ const expressionscreen = `
 `;
 
 $(document).ready(() => {
-    const expression= document.createElement("div")
-    expression.innerHTML=expressionscreen
+    const expression = document.createElement("div")
+    expression.innerHTML = expressionscreen
 
     document.body.appendChild(expression)
 
-    $(".expressionClose ,.expression").on("click",()=>{
+    $(".expressionClose ,.expression").on("click", () => {
         $(".expressionBackdrop, .alPopupBackground").hide()
         $("body").css("overflow", "auto");
     })
 
-    $(".expressionbox").on("click",()=>{
+    $(".expressionbox").on("click", () => {
         $(".expressionBackdrop, .alPopupBackground").show()
         $("body").css("overflow", "hidden");
     })

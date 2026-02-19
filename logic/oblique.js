@@ -14,10 +14,10 @@ $(document).ready(() => {
     // 2. Handling the "Add" button click
     $(document).on("click", ".obliqueAddBtn", function (e) {
         e.preventDefault();
-        
+
         const num = $("#numerator").val().trim() || "?";
         const den = $("#denominator").val().trim() || "?";
-        
+
         const $editor = getEditor();
         if (!$editor.length) return;
 
@@ -28,7 +28,7 @@ $(document).ready(() => {
                     <mi>${num}</mi>
                     <mi>${den}</mi>
                 </mfrac>
-            </math>&nbsp;`; 
+            </math>&nbsp;`;
 
         // RESTORE CURSOR: Ensure we insert where the user last clicked
         const sel = window.getSelection();
@@ -66,7 +66,7 @@ $(document).ready(() => {
                 // If backspacing at the very start of a fraction
                 if (range.startOffset === 0) {
                     e.preventDefault();
-                    
+
                     const prev = mathElement.previousSibling;
                     mathElement.remove();
 

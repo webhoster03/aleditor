@@ -4,8 +4,8 @@ document.head.appendChild(script);
 
 const AlEditor = {
     instances: {},
-    
-    
+
+
 
     replace: function (selector) {
         const element = $("#" + selector);
@@ -144,7 +144,9 @@ const AlEditor = {
             background-color:blue;
             color:white;
         }
-                        `;
+
+        
+        `;
         document.head.appendChild(style);
 
 
@@ -247,6 +249,10 @@ const AlEditor = {
                 X₂
             </button>
 
+            <button class="altool-button root" value="root" title="root">
+                √
+            </button>
+
             <button class="altool-button obliquebox" title="Fraction">
                 <math>
                     <mfrac>
@@ -269,15 +275,15 @@ const AlEditor = {
             </button>
 
             <button class="altool-button" title="Parentheses">
-                ()
+                ( )
             </button>
 
             <button class="altool-button" title="Curly Braces">
-                {}
+                { }
             </button>
 
             <button class="altool-button" title="Square Brackets">
-                []
+                [ ]
             </button>
 
         `;

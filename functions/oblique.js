@@ -52,20 +52,20 @@ $(document).ready(() => {
     document.body.appendChild(obliqueContainer);
 
     // Opening the popup
-    $(".obliquebox").on("click", function() {
+    $(".obliquebox").on("click", function () {
         // Reset fields
         $("#numerator").val("");
         $("#denominator").val("");
-        
+
         $(".obliqueMainScreen, .alPopupBackground").show();
         $("body").css("overflow", "hidden");
-        
+
         // Focus first input
         setTimeout(() => $("#numerator").focus(), 100);
     });
 
     // Closing the popup
-    $(document).on("click", ".obliqueClose", function() {
+    $(document).on("click", ".obliqueClose", function () {
         $(".obliqueMainScreen, .alPopupBackground").hide();
         $("body").css("overflow", "auto");
     });

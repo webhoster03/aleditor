@@ -29,17 +29,17 @@ $(document).ready(() => {
     function updateBoldButtonState() {
         const isBold = document.queryCommandState('bold');
         $(".bold").toggleClass("active", isBold);
-        
+
         if (window.getSelection().toString().length === 0) {
             isManualBoldToggled = isBold;
         }
     }
 
-    $(document).on("mouseup keyup mousemove", "[contenteditable=true]", function() {
+    $(document).on("mouseup keyup mousemove", "[contenteditable=true]", function () {
         updateBoldButtonState();
     });
 
-    $(document).on('keydown', "[contenteditable=true]", function(e) {
+    $(document).on('keydown', "[contenteditable=true]", function (e) {
         if (e.key === 'Enter') {
             setTimeout(() => {
                 if (isManualBoldToggled) {

@@ -6,7 +6,8 @@ const tools = [
     "superscript",
     "subscript",
     "oblique",
-    "expression"
+    "expression",
+    "root"
 ];
 
 tools.forEach(name => {

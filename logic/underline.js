@@ -1,11 +1,11 @@
 $(document).ready(() => {
-    $(".underline").on("click", function(e) {
+    $(".underline").on("click", function (e) {
         e.preventDefault();
         const $editor = $("#editor, .editor, [contenteditable=true]").first();
         if (!$editor.length) return;
 
         document.execCommand("underline", false, null);
-        
+
         $editor.focus();
         updateUnderlineState();
     });
@@ -17,7 +17,7 @@ $(document).ready(() => {
 
     $(document).on("mouseup keyup mousemove", "[contenteditable=true]", updateUnderlineState);
 
-    $(document).on("keydown", "[contenteditable=true]", function(e) {
+    $(document).on("keydown", "[contenteditable=true]", function (e) {
         if (e.key === "Backspace" || e.key === "Delete") {
             const selection = window.getSelection();
             if (selection.rangeCount === 0 || selection.toString().length > 0) return;
@@ -29,11 +29,11 @@ $(document).ready(() => {
             if (parentTag.tagName === "U") {
                 setTimeout(() => {
                     const content = parentTag.innerHTML.replace(/&nbsp;|\u200B|<br>/g, '').trim();
-                    
+
                     if (content === "") {
                         const prev = parentTag.previousSibling;
                         parentTag.remove();
-                        
+
                         if (prev) {
                             const newRange = document.createRange();
                             newRange.selectNodeContents(prev);

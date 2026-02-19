@@ -3,7 +3,7 @@ $(document).ready(() => {
     let savedRange = null;
 
     // 1. Save cursor position when the popup opens
-    $(document).on("click", ".expressionbox", function() {
+    $(document).on("click", ".expressionbox", function () {
         const sel = window.getSelection();
         if (sel.rangeCount > 0) {
             savedRange = sel.getRangeAt(0);
@@ -15,12 +15,12 @@ $(document).ready(() => {
     // 2. Add Button Logic
     $(document).on("click", "button.expression", function (e) {
         e.preventDefault();
-        
+
         // Capture values
         const multi = $("#input-multiplicand").val().trim();
         const num = $("#input-numerator").val().trim() || "0";
         const den = $("#input-denominator").val().trim() || "0";
-        
+
         const $editor = getEditor();
         if (!$editor.length) return;
 
@@ -35,7 +35,7 @@ $(document).ready(() => {
                     <mi>${num}</mi>
                     <mi>${den}</mi>
                 </mfrac>
-            </math>&nbsp;`; 
+            </math>&nbsp;`;
 
         // Restore cursor position
         const sel = window.getSelection();

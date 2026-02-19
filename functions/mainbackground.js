@@ -1,10 +1,10 @@
-const popupBackGround= document.createElement("div")
-popupBackGround.className="alPopupBackground"
+const popupBackGround = document.createElement("div")
+popupBackGround.className = "alPopupBackground"
 
 
-const albackstyle= document.createElement("style")
+const albackstyle = document.createElement("style")
 
-albackstyle.innerHTML=`
+albackstyle.innerHTML = `
 .alPopupBackground{
     height: 100vh;
     width: 100%;
