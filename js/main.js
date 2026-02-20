@@ -46,7 +46,6 @@ const AlEditor = {
         editor.style.lineHeight = "1.5";
         editor.style.padding = "20px 40px";
         editor.style.boxSizing = "border-box";
-        editor.style.fontFamily = "serif";
         editor.style.overflow = "auto";
 
 
@@ -212,11 +211,11 @@ const AlEditor = {
 
             <button class="altool-button" title="Center">≣</button>
 
-            <button class="altool-button" title="Ordered List">1 2 3</button>
+            <button class="altool-button list" title="List">
+                <i class="fas fa-list"></i>
+            </button>
 
-            <button class="altool-button" title="Unordered List">__</button>
-
-            <button class="altool-button" title="Heading">H1</button>
+            <button class="altool-button" title="Heading">H</button>
 
             <button class="altool-button" title="Paragraph">P</button>
         `;
@@ -274,15 +273,15 @@ const AlEditor = {
                 </math>
             </button>
 
-            <button class="altool-button" title="Parentheses">
+            <button class="altool-button parentheses" title="Parentheses" disabled>
                 ( )
             </button>
 
-            <button class="altool-button" title="Curly Braces">
+            <button class="altool-button" title="Curly Braces" disabled>
                 { }
             </button>
 
-            <button class="altool-button" title="Square Brackets">
+            <button class="altool-button" title="Square Brackets" disabled>
                 [ ]
             </button>
 

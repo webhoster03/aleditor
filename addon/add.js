@@ -7,7 +7,7 @@ const tools = [
     "subscript",
     "oblique",
     "expression",
-    "root"
+    "root",
 ];
 
 tools.forEach(name => {

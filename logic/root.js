@@ -1,41 +1,36 @@
-$(document).ready(() => {
-    let editor = null;
+$(".root").on("click", (e) => {
+    e.preventDefault();
+    const selection = window.getSelection();
+    if (!selection.rangeCount) return;
+    const range = selection.getRangeAt(0);
+    const selectedText = range.extractContents();
 
-    function getEditor() {
-        if (editor) return editor;
-        editor = $("#editor, .editor, [contenteditable=true]").first();
-        return editor;
+    const rootWrapper = document.createElement("span");
+    rootWrapper.setAttribute("style", "display: inline-flex; align-items: baseline; vertical-align: middle; white-space: nowrap;");
+
+    const symbol = document.createElement("span");
+    symbol.textContent = "\u221A";
+    symbol.setAttribute("style", "font-size: 1.1em; padding-right: 2px; user-select: none;");
+
+    const content = document.createElement("span");
+    // border-top creates the root line; it stretches with the content width
+    content.setAttribute("style", "border-top: 2px solid currentColor; padding-top: 1px; margin-left: -1px; display: inline-block; min-width: 10px; outline: none;");
+    
+    if (selectedText.textContent.length > 0) {
+        content.appendChild(selectedText);
+    } else {
+        content.innerHTML = "&nbsp;";
     }
 
-    $(".root").on("click", (e) => {
-        e.preventDefault();
-        const $editor = getEditor();
-        if (!$editor.length) return;
+    rootWrapper.appendChild(symbol);
+    rootWrapper.appendChild(content);
 
-        const selection = window.getSelection();
-        if (!selection.rangeCount) return;
-
-        const range = selection.getRangeAt(0);
-        const rootSymbol = "√";
-
-        // Logic: If user has selected text, wrap it or prefix it
-        if (selection.toString().length > 0) {
-            // Option A: Just insert symbol before selection
-            const span = document.createElement("span");
-            span.textContent = rootSymbol;
-            range.insertNode(span);
-        } else {
-            // Option B: No selection, just insert the symbol at cursor
-            const textNode = document.createTextNode(rootSymbol);
-            range.insertNode(textNode);
-
-            // Move the cursor to after the inserted symbol
-            range.setStartAfter(textNode);
-            range.setEndAfter(textNode);
-            selection.removeAllRanges();
-            selection.addRange(range);
-        }
-
-        $editor.focus();
-    });
+    range.insertNode(rootWrapper);
+    
+    // Move cursor inside
+    const newRange = document.createRange();
+    newRange.selectNodeContents(content);
+    newRange.collapse(false);
+    selection.removeAllRanges();
+    selection.addRange(newRange);
 });
