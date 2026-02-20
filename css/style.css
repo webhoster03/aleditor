@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.toolbarMainContainer{
+    border: 1px solid black;
+    height: auto;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.alToolEditor{
+    height: auto;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.aleditor{
+    height: 400px;
+    width: 100%;
+    padding: 20px 30px;
+    line-height: 1.5rem;
+    font-size: 16px;
+    overflow-y: auto;
+    
+}
+
+.toolbar{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 10px 0px;
+}
+
+.altoolbar{
+    display: flex;
+    padding-left: 7px;
+    gap: 7px;
+}
+
+.altool-div{
+    height: 30px;
+    width: 35px;
+}
+
+.altool-button{
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid black;
+    outline: none;
+    cursor: pointer;
+    border-radius: 2px;
+    color: black
+}
+
+.active{
+    background-color: #007BFF;
+    color: white;
+}

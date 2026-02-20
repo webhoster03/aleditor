@@ -1,0 +1,16 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#formbox {
+    height: 550px;
+    width: 100%;
+    padding: 0px 20px;
+}
+
+.active {
+    background-color: blue;
+    color: white;
+}

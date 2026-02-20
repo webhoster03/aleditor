@@ -1,35 +1,59 @@
 $(document).ready(() => {
-    const getEditor = () => $("#editor, .editor, [contenteditable=true]").first();
+    let isManualSubscriptToggled = false;
+    let editor = null;
 
-    $(".oblique").on("click", function (e) {
+    function getEditor() {
+        if (editor) return editor;
+        editor = $("#editor, .editor, [contenteditable=true]").first();
+        return editor;
+    }
+
+    // 1. Click Handler: Toggle Subscript
+    $(".subscript").on("click", (e) => {
         e.preventDefault();
         const $editor = getEditor();
         if (!$editor.length) return;
 
-        const fractionHtml = `
-            <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" style="cursor: default;">
-                <mfrac>
-                    <mi class="math-input" contenteditable="true">?</mi>
-                    <mi class="math-input" contenteditable="true">?</mi>
-                </mfrac>
-            </math>&nbsp;`;
+        const selection = window.getSelection();
+        const isSub = document.queryCommandState('subscript');
 
-        document.execCommand("insertHTML", false, fractionHtml);
+        if (selection.toString().length > 0) {
+            // Apply to highlighted text
+            document.execCommand("subscript", false, null);
+            updateSubscriptButtonState();
+        } else {
+            // Toggle for the blinking cursor
+            document.execCommand("subscript", false, null);
+            isManualSubscriptToggled = !isSub;
+            $(".subscript").toggleClass("active", isManualSubscriptToggled);
+        }
         $editor.focus();
     });
 
-    $(document).on("keydown", "[contenteditable=true]", function (e) {
-        if (e.key === "Backspace") {
-            const selection = window.getSelection();
-            const range = selection.getRangeAt(0);
+    // 2. State Sync: Update button highlight
+    function updateSubscriptButtonState() {
+        const isSub = document.queryCommandState('subscript');
+        $(".subscript").toggleClass("active", isSub);
+        
+        // Sync manual toggle if there's no selection
+        if (window.getSelection().toString().length === 0) {
+            isManualSubscriptToggled = isSub;
+        }
+    }
 
-            let parentMath = $(range.startContainer).closest("math");
+    // Sync button on cursor movement
+    $(document).on("mouseup keyup mousemove", "[contenteditable=true]", function() {
+        updateSubscriptButtonState();
+    });
 
-            if (parentMath.length && range.startOffset === 0) {
-                if (parentMath.find(".math-input").first().is(range.startContainer.parentNode)) {
-                    parentMath.remove();
+    // 3. Line Break Support: Maintain state on Enter
+    $(document).on('keydown', "[contenteditable=true]", function(e) {
+        if (e.key === 'Enter') {
+            setTimeout(() => {
+                if (isManualSubscriptToggled) {
+                    document.execCommand("subscript", false, null);
                 }
-            }
+            }, 10);
         }
     });
 });

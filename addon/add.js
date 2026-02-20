@@ -1,13 +1,13 @@
 const tools = [
-    "bold", 
-    "italic", 
-    "underline", 
-    "strikethrough",
-    "superscript",
-    "subscript",
-    "oblique",
-    "expression",
-    "root",
+  "bold",
+  "italic",
+  "underline",
+  "strikethrough",
+  "superscript",
+  "subscript",
+  "oblique",
+  "expression",
+  "root",
 ];
 
 tools.forEach(name => {
@@ -17,9 +17,9 @@ tools.forEach(name => {
 });
 
 const tag = [
-    "oblique",
-    "mainbackground",
-    "expression"
+  "oblique",
+  "mainbackground",
+  "expression"
 ];
 
 tag.forEach(name => {
@@ -27,3 +27,9 @@ tag.forEach(name => {
   tagScript.src = `./../functions/${name}.js`;
   document.head.appendChild(tagScript);
 });
+
+
+const link = document.createElement("link");
+link.rel = "stylesheet";
+link.href = "./../css/style.css";
+document.head.appendChild(link);
