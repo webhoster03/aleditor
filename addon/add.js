@@ -8,6 +8,7 @@ const tools = [
   "oblique",
   "expression",
   "root",
+  "heading"
 ];
 
 tools.forEach(name => {
@@ -19,7 +20,8 @@ tools.forEach(name => {
 const tag = [
   "oblique",
   "mainbackground",
-  "expression"
+  "expression",
+  "heading"
 ];
 
 tag.forEach(name => {

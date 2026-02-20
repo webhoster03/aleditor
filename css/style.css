@@ -40,13 +40,13 @@
 }
 
 .altool-div{
-    height: 30px;
-    width: 35px;
+    height: auto;
+    width: auto;
 }
 
-.altool-button{
-    height: 100%;
-    width: 100%;
+.altool-button, .headingBoxone{
+    height: 30px;
+    width: 35px;
     background-color: transparent;
     border: 1px solid black;
     outline: none;
@@ -58,4 +58,12 @@
 .active{
     background-color: #007BFF;
     color: white;
+}
+
+
+
+/* heading style */
+.headingBox{
+    height: 30px;
+    width: 40px
 }

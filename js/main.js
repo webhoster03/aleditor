@@ -143,8 +143,16 @@ const AlEditor = {
                 <i class="fas fa-list"></i>
             </button>
             </div>
-            <div class="altool-div">
-                <button class="altool-button" title="Heading">H</button>
+            <div class="altool-div addheadingbutton">
+                <select class="headingBox headingboxheadle">
+                    <option value="">H</option>
+                    <option value="h1">H1</option>
+                    <option value="h2">H2</option>
+                    <option value="h3">H3</option>
+                    <option value="h4">H4</option>
+                    <option value="h5">H5</option>
+                    <option value="h6">H6</option>
+                </select>
             </div>
             <div class="altool-div">
                 <button class="altool-button" title="Paragraph">P</button>
